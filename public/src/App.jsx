@@ -1,13 +1,12 @@
 import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
+import { PropTypes } from 'prop-types';
 import Moment from 'moment';
-import { 
-  Jumbotron,
-  Container 
-  } from 'reactstrap';
+import { Jumbotron, Container } from 'reactstrap';
 
 import { _Navbar } from './components';
 import { TRAIN_STOPS } from './constants';
-const train_stop = TRAIN_STOPS['Parkchester'];
+import { fetchTrainTrips } from './actions/trainTripsActions';
 
 class App extends Component {
   constructor(props){
@@ -15,33 +14,31 @@ class App extends Component {
 
     this.state = {
       response: '',
-      n_times: 0
+      n_times: 0,
+      current_time: '',
+      train_line: '6'
     };
   }
 
   componentDidMount(){
     const min = 60000; //minute
 
-    this.callApi()
-    .then(res => res.json())
-    .then(res => this.setState({ response: res.schedule[train_stop] }));
+    setInterval(() => this.setState({ current_time: Moment().format('LTS') }), 100);
+    this.props.fetchTrainTrips(this.state.train_line);
 
     setInterval(() => {
-      this.callApi()
-      .then(res => res.json())
-      .then(res => {
-        let data = res.schedule[train_stop];
+      let data = this.props.fetchTrainTrips(this.state.train_line);
 
-        if (!(this.checkIfSame(this.state.response, data))){
-          console.log('updating');
-          this.setState({ response: res.schedule[train_stop] });
-        }
-      })
-      .then(this.setState({ n_times: this.state.n_times + 1 }))
-      .then(console.log('called api ' + this.state.n_times + ' times'))
-      .catch(err => console.log(err));
-    },
-    min);
+      if (!(this.state.response, data)){
+        console.log('updating');
+        this.setState({ 
+          n_times: this.state.n_times + 1 
+        });
+
+        console.log('called api ' + this.state.n_times + ' times');
+      }
+
+    }, (min / 2));
   }
 
   checkIfSame = (a, b) => {
@@ -64,11 +61,6 @@ class App extends Component {
     return true;
   }
 
-  callApi = async () => {
-    const response = await fetch(`/api/trainSchedule/${train_stop}`);
-    return response;
-  }
-
   convertEpochToTime = (epoch) => {
     if(epoch !== null){
       return Moment.unix(epoch).format('dddd, MMMM Do, YYYY h:mm:ss A');
@@ -78,39 +70,28 @@ class App extends Component {
   }
 
   render(){
-    const trainData = (direction, train_stop) => {
-      if(this.state.response){
-        return this.state.response[direction].map((train, index) => {
-          return <li key={ index.toString() } className="train-ETA">
-          Train type: { train.routeId } <br/>
-            Arrival time: <span className="arrival-time">{ JSON.stringify(this.convertEpochToTime(train.arrivalTime)) }</span> <br/>
-            Departure time: <span className="departure-time">{ JSON.stringify(this.convertEpochToTime(train.departureTime)) }</span> <br/> 
-          Delay: { JSON.stringify(train.delay) } </li>;          
-        });
-      }
-      else {
-        return '';
-      }
-    };
     return(
       <Fragment>
         <_Navbar />
         <div className="content">
-          <h1>Parkchester | Updated: { this.state.n_times }</h1><br/>
-          <div className="trainSchedule">
-            <div>
-              <h2>Northbound Trains</h2>
-              <ul className="train-ETA-list"> { trainData('N') } </ul>
-            </div>
-            <div>
-              <h2>Sounthbound Trains</h2>
-              <ul className="train-ETA-list"> { trainData('S') } </ul>
-            </div>
-          </div>
+          <h2>{this.state.current_time}</h2><br/>
+          <h1>Updated: { this.state.n_times }</h1><br/>
+
+
         </div>
       </Fragment>
     );
   }
 }
 
-export default App;
+App.propTypes = {
+  fetchTrainTrips: PropTypes.func,
+  train_trips: PropTypes.array
+};
+
+const mapStateToProps = state => ({
+  train_trips: state.train_trips
+});
+
+// export default App;
+export default connect(mapStateToProps, { fetchTrainTrips })(App);

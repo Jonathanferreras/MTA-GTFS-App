@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import countReducer from './countReducer';
+import trainTripsReducer from './trainTripsReducer';
 
 export default combineReducers({
-  count: countReducer
+  train_trips: trainTripsReducer
 });
