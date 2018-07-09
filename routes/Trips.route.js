@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-const train_trips_controller = require('../controllers/trainTrips.controller');
+const trips_controller = require('../controllers/Trips.controller');
 
 router.get('/:train_line', async (req, res, next) => {
-  let train_trips = await train_trips_controller.getTrainTrips(req.params.train_line);
+  let train_trips = await trips_controller.getTrainTrips(req.params.train_line);
 
   res.status(200).send(train_trips);
 })
