@@ -1,15 +1,14 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-var index_router = require('./routes/index');
-var train_route_router = require('./TrainRoutes/TrainRoutes.route');
-// var trips_router = require('./routes/Trips.route');
-// var stops_router = require('./routes/Stops.route');
+const index_router = require('./routes/index');
+const train_routes_router = require('./routes/TrainRoutes.route');
+const train_trips_router = require('./routes/TrainTrips.route');
 
-var app = express();
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -26,7 +25,8 @@ if(process.env.NODE_ENV.trim() !== 'production'){
 
 
 app.use('/', index_router);
-app.use('/api/TrainRoute', train_route_router);
+app.use('/api/TrainRoute', train_routes_router);
+app.use('/api/TrainTrips', train_trips_router);
 // app.use('/api/trips', trips_router);
 // app.use('/api/stops', stops_router);
 

@@ -1,4 +1,4 @@
-const train_route_model = require('../TrainRoutes/TrainRoutes.model');
+const train_route_model = require('../models/TrainRoutes.model');
 
 exports.getAllTrainRoutes = () => {
   return new Promise((resolve, reject) => {

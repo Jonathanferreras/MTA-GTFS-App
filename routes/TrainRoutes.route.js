@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const controller = require('../TrainRoutes/TrainRoutes.controller');
+const controller = require('../controllers/TrainRoutes.controller');
 
 router.get('/', async(req, res, next) => {
   try {
@@ -9,14 +9,14 @@ router.get('/', async(req, res, next) => {
     res.status(200).send(train_routes)    
   } 
   catch (error) {
-    console.log('An error occurred while getting train routes, Error: ' + error)
+    console.log('An error occurred while getting all train routes, Error: ' + error)
     res.status(500).send()    
   }
 });
 
-router.get('/:route', async(req, res, next) => {
+router.get('/:train_route_id', async(req, res, next) => {
   try {
-    const train_route = await controller.getTrainRoute(req.params.route);
+    const train_route = await controller.getTrainRoute(req.params.train_route_id);
     res.status(200).json(train_route)    
   } 
   catch (error) {
