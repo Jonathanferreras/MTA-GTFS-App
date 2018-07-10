@@ -4,8 +4,10 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var trainTripsRouter = require('./routes/Trips.route');
+var index_router = require('./routes/index');
+var train_route_router = require('./TrainRoutes/TrainRoutes.route');
+// var trips_router = require('./routes/Trips.route');
+// var stops_router = require('./routes/Stops.route');
 
 var app = express();
 
@@ -23,8 +25,11 @@ if(process.env.NODE_ENV.trim() !== 'production'){
 }
 
 
-app.use('/', indexRouter);
-app.use('/api/trainTrips', trainTripsRouter);
+app.use('/', index_router);
+app.use('/api/TrainRoute', train_route_router);
+// app.use('/api/trips', trips_router);
+// app.use('/api/stops', stops_router);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

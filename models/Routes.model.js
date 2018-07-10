@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const mongo_config = require('../config/mongoConfig');
-const file_convert = require('../helpers/fileConvert');
+const convert_file = require('../helpers/convertFile');
 
-const routes = file_convert.csvToJson('files/routes.csv');
+const routes = convert_file.csvToJson('files/routes.csv');
 
 mongoose.connect(`mongodb://127.0.0.1:27017/${ mongo_config.uri.local }`, { useNewUrlParser: true });
 
@@ -26,3 +26,5 @@ routes.forEach(route => {
     console.log(err, routes);
   }));
 });
+
+module.exports = route_model;

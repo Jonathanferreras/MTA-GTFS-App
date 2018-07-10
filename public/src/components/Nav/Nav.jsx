@@ -5,7 +5,7 @@ import {
   NavbarToggler
   } from 'reactstrap';
 
-class _Navbar extends Component {
+class Nav extends Component {
   render(){
     return(
       <Fragment>
@@ -18,4 +18,4 @@ class _Navbar extends Component {
   }
 }
 
-export default _Navbar;
+export default Nav;

@@ -1,19 +1,11 @@
 @import 'colors';
-@import '../components/Navbar/Navbar';
-@import '../components/TrainStop/TrainStop';
-
-@mixin update($val_color) {
-  animation: change 1s ease-in both;
-
-  @keyframes change {
-    from { color: $yellow; }
-    to   { color: $val_color; }
-  }
-}
+@import '../components/Nav/Nav';
+@import '../components/TrainRouteSelector/TrainRouteSelector';
 
 #app {
   background-color: $blue;
   width: 100%;
+  height: 100vh;
 }
 
 .content {
@@ -26,40 +18,5 @@
   flex-direction: column;
 }
 
-.trainSchedule {
-  display: flex;
-}
-
-.train-ETA-list {
-  padding: 0;
-  margin-right: 10px;
-}
-
-.train-ETA {
-  background: $gray;
-  margin-bottom: 10px;
-  padding: 10px;
-  list-style: none;
-  border-radius: 20px;
-  color: $navy;
-}
-
-.arrival-time {
-  animation: change 1s ease-in both;
-
-  @keyframes change {
-    from { color: $yellow; }
-    to   { color: $green; }
-  }
-}
-
-.departure-time {
-  animation: change2 1s ease-in both;
-
-  @keyframes change2 {
-    from { color: $yellow; }
-    to   { color: $red; }
-  }
-}
 
 

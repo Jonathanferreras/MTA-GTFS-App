@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const mongo_config = require('../config/mongoConfig');
-const file_convert = require('../helpers/fileConvert');
+const convert_file = require('../helpers/convertFile');
 
-const stops = file_convert.csvToJson('files/stops.csv');
+const stops = convert_file.csvToJson('files/stops.csv');
 
 mongoose.connect(`mongodb://127.0.0.1:27017/${ mongo_config.uri.local }`, { useNewUrlParser: true });
 
@@ -21,9 +21,10 @@ const stop_schema = mongoose.Schema({
 
 const stop_model = mongoose.model('train stops', stop_schema);
 
+console.log(stops.length)
 stops.forEach(stop => {
   stop_model.create(stop)
-  .then(((err, stops) => {
-    console.log(err, stops);
-  }));
+  .then((() => console.log('added')))
 });
+
+module.exports = stop_model;

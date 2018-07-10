@@ -4,8 +4,7 @@ import { PropTypes } from 'prop-types';
 import Moment from 'moment';
 import { Jumbotron, Container } from 'reactstrap';
 
-import { _Navbar } from './components';
-import { TRAIN_STOPS } from './constants';
+import { Nav, TrainRouteSelector } from './components';
 import { fetchTrainTrips } from './actions/trainTripsActions';
 
 class App extends Component {
@@ -24,21 +23,21 @@ class App extends Component {
     const min = 60000; //minute
 
     setInterval(() => this.setState({ current_time: Moment().format('LTS') }), 100);
-    this.props.fetchTrainTrips(this.state.train_line);
+    // this.props.fetchTrainTrips(this.state.train_line);
 
-    setInterval(() => {
-      let data = this.props.fetchTrainTrips(this.state.train_line);
+    // setInterval(() => {
+    //   let data = this.props.fetchTrainTrips(this.state.train_line);
 
-      if (!(this.state.response, data)){
-        console.log('updating');
-        this.setState({ 
-          n_times: this.state.n_times + 1 
-        });
+    //   if (!(this.state.response, data)){
+    //     console.log('updating');
+    //     this.setState({ 
+    //       n_times: this.state.n_times + 1 
+    //     });
 
-        console.log('called api ' + this.state.n_times + ' times');
-      }
+    //     console.log('called api ' + this.state.n_times + ' times');
+    //   }
 
-    }, (min / 2));
+    // }, (min / 2));
   }
 
   convertEpochToTime = (epoch) => {
@@ -52,12 +51,11 @@ class App extends Component {
   render(){
     return(
       <Fragment>
-        <_Navbar />
+        <Nav />
         <div className="content">
           <h2>{this.state.current_time}</h2><br/>
-          <h1>Updated: { this.state.n_times }</h1><br/>
-
-
+          {/* <h1>Updated: { this.state.n_times }</h1><br/> */}
+          <TrainRouteSelector/>
         </div>
       </Fragment>
     );
