@@ -11,7 +11,7 @@ class TrainRouteSelector extends Component {
     super(props);
 
     this.toggle = this.toggle.bind(this);
-    this.state = { collapse: false };
+    this.state = { collapse: false, selected_route: { id: '', color: ''} };
   }
 
   componentDidMount(){
@@ -30,8 +30,12 @@ class TrainRouteSelector extends Component {
           train_routes.map((train_route, index) => {
             return <TrainRouteButton
                     onClick={() => {
-                      this.toggle;
-                      this.props.fetchTrainTrips(train_route.route_id); 
+                      this.props.fetchTrainTrips(train_route.route_id);
+                      this.setState({selected_route: {
+                        id: train_route.route_id,
+                        color: train_route.route_color
+                      }});
+                      this.toggle();
                     }}
                     key = {index.toString()}
                     color = { train_route.route_color }
@@ -47,15 +51,17 @@ class TrainRouteSelector extends Component {
 
     const generate_train_trips = (train_trips) => {
       if (train_trips.length > 0) {
-        return <span>Found trips.</span>;
-      } else {
-        return <span>No trips available.</span>;
+        return <span style={{backgroundColor: `#${ this.state.selected_route.color }`}} className="selected-train-route">{ this.state.selected_route.id }</span>;
+      } 
+      else {
+        return <span>No route selected.</span>;
       }
     };
 
     return (
       <Fragment>
         <Button outline color="info" onClick={ this.toggle } style={{ marginBottom: '1rem' }}>Select a Route</Button>
+
         <Container>
           <div className="train-route-selector">
             <Collapse isOpen={this.state.collapse}>
@@ -65,7 +71,12 @@ class TrainRouteSelector extends Component {
             </Collapse>
           </div>
         </Container>
-        { generate_train_trips(this.props.train_trips) }
+        <hr/>
+        <div className="train-route">
+          <Container>
+            { generate_train_trips(this.props.train_trips) } 
+          </Container>       
+        </div>
       </Fragment>
     );
   }

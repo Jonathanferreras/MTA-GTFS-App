@@ -4,3 +4,26 @@
   border-radius: 20px;
 }
 
+.train-route {
+  margin-right: auto;
+}
+
+.selected-train-route {
+  font-size: 2em;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin:5px;
+  border: 1px solid rgba(255, 255, 255, 0);
+  box-shadow: 0px 2px 3px -1px rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media only screen and (max-width: 767px) {
+    font-size: 1em;
+    width: 50px;
+    height: 50px;
+  }
+}
