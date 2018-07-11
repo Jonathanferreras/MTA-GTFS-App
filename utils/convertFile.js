@@ -12,3 +12,15 @@ exports.csvToJson = (csv) => {
 
   return csvjson.toObject(file, options);
 }
+
+exports.jsonToCsv = (json) => {
+  let file = fs.readFileSync(path.join(appRoot.path, json), { encoding : 'utf8'});
+  let options = {
+    delimiter : ',',
+    wrap        : false
+  };
+
+  return csvjson.toCSV(file, options);  
+}
+
+jsonToCsv(require('../files/TrainTrips'))

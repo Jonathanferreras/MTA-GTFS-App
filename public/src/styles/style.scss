@@ -1,6 +1,7 @@
 @import 'colors';
 @import '../components/Nav/Nav';
 @import '../components/TrainRouteSelector/TrainRouteSelector';
+@import '../components/TrainRouteButton/TrainRouteButton';
 
 #app {
   background-color: $blue;
@@ -10,11 +11,11 @@
 
 .content {
   color: #fff;
-  margin-top: 25vh;
+  margin-top: 5vh;
 
   display: flex;
   align-items: center;
-  justify-content: center;
+  // justify-content: center;
   flex-direction: column;
 }
 

@@ -19,8 +19,23 @@ exports.getAllTrainTrips = () => {
   });
 };
 
-exports.getTrainTripsByTrain = route => {
+exports.getTrainTripsByTrain = train_route_id => {
   return new Promise((resolve, reject) => {
-    //code here
+    (async () => {
+
+      let results = [];
+      let trips = await tripUpdate.getUpdate();
+
+      (trips.entity).forEach(train => {
+        if(train.trip_update){
+          if(train.trip_update.trip.route_id == train_route_id){
+            results.push(train.trip_update);
+          }
+        }
+      });
+
+      resolve(results);
+
+    })();
   })
 };
