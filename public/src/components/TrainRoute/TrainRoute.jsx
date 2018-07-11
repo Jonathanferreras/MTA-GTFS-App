@@ -9,14 +9,14 @@ class TrainRoute extends Component {
     super(props);
   }
 
-  componentDidMount(){
-    if(this.props.route_id != ""){ 
-        this.props.fetchTrainStops(this.props.route_id);
-      } 
+  componentDidUpdate(prevProps){
+    if(this.props.route_id !== prevProps.route_id){
+      this.props.fetchTrainStops(this.props.route_id);
+    }
   }
 
   render() {
-    const generateSelectedRoute = (id) => {
+    const selectedRoute = (id) => {
       if(id){
         return <span style={{backgroundColor: `#${ this.props.route_color }`}} className="selected-train-route">{ id }</span>;
       }
@@ -25,9 +25,23 @@ class TrainRoute extends Component {
       }
     };
 
+    const trainStops = (train_stops) => {
+      if(train_stops.length > 0){
+        return(
+          train_stops.map((train_stop, index) => {
+            return <li key={index.toString()}>{ train_stop.stop_name }</li>;
+          })
+        );
+      }
+      else {
+
+      }
+    };
+
     return (
       <div className="train-route">
-        { generateSelectedRoute (this.props.route_id) }
+        { selectedRoute(this.props.route_id) }
+        { trainStops(this.props.train_stops) }
       </div>
     );
   }

@@ -31,7 +31,7 @@ class TrainRouteSelector extends Component {
   }
 
   render() {
-    const generateTrainRoutes = (train_routes) => {
+    const trainRoutes = (train_routes) => {
       if(train_routes.length > 0){
         return(
           train_routes.map((train_route, index) => {
@@ -87,7 +87,7 @@ class TrainRouteSelector extends Component {
           <div className="train-route-selector">
             <Collapse isOpen={this.state.collapse}>
               <Container>
-                <p> { generateTrainRoutes(this.props.train_routes) } </p>
+                <p> { trainRoutes(this.props.train_routes) } </p>
               </Container>        
             </Collapse>
           </div>
