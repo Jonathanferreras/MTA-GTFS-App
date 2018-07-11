@@ -1,12 +1,16 @@
 @import 'colors';
 @import '../components/Nav/Nav';
+@import '../components/Clock/Clock';
 @import '../components/TrainRouteSelector/TrainRouteSelector';
 @import '../components/TrainRouteButton/TrainRouteButton';
+@import '../components/TrainRoute/TrainRoute';
+
+body {
+  background-color: $blue;
+}
 
 #app {
-  background-color: $blue;
   width: 100%;
-  height: 100vh;
 }
 
 .content {

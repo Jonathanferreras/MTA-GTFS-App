@@ -7,6 +7,7 @@ const logger = require('morgan');
 const index_router = require('./routes/index');
 const train_routes_router = require('./routes/TrainRoutes.route');
 const train_trips_router = require('./routes/TrainTrips.route');
+const train_stops_router = require('./routes/TrainStops.route');
 
 const app = express();
 
@@ -27,6 +28,7 @@ if(process.env.NODE_ENV.trim() !== 'production'){
 app.use('/', index_router);
 app.use('/api/TrainRoute', train_routes_router);
 app.use('/api/TrainTrips', train_trips_router);
+app.use('/api/TrainStops', train_stops_router);
 // app.use('/api/trips', trips_router);
 // app.use('/api/stops', stops_router);
 

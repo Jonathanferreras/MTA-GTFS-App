@@ -4,6 +4,7 @@ import { PropTypes } from 'prop-types';
 import { Container, Collapse, Button } from 'reactstrap';
 
 import TrainRouteButton from '../TrainRouteButton/TrainRouteButton';
+import TrainRoute from '../TrainRoute/TrainRoute';
 import { fetchTrainRoutes, fetchTrainTrips } from '../../actions';
 
 class TrainRouteSelector extends Component {
@@ -11,35 +12,47 @@ class TrainRouteSelector extends Component {
     super(props);
 
     this.toggle = this.toggle.bind(this);
-    this.state = { collapse: false, selected_route: { id: '', color: ''} };
+    this.state = { 
+      collapse: false, 
+      selected_route: { 
+        id: '', 
+        color: '',
+        bool: false,
+      } 
+    };
   }
 
   componentDidMount(){
     this.props.fetchTrainRoutes();
   }
 
-  toggle = () => {
-    console.log('toggle: ' + this.state.collapse);
-    this.setState({ collapse: !this.state.collapse });
+  toggle = () => { 
+    this.setState({ collapse: !this.state.collapse }); 
   }
 
   render() {
-    const generate_train_routes = (train_routes) => {
+    const generateTrainRoutes = (train_routes) => {
       if(train_routes.length > 0){
         return(
           train_routes.map((train_route, index) => {
             return <TrainRouteButton
-                    onClick={() => {
-                      this.props.fetchTrainTrips(train_route.route_id);
-                      this.setState({selected_route: {
-                        id: train_route.route_id,
-                        color: train_route.route_color
-                      }});
-                      this.toggle();
-                    }}
-                    key = {index.toString()}
-                    color = { train_route.route_color }
-                    id = { train_route.route_id }
+              onClick={() => {
+                // this.props.fetchTrainTrips(train_route.route_id);
+
+                /* if route doesn't have color then default to gray */
+                if(train_route.route_color == "")
+                  train_route.route_color = '6c757d';
+
+                this.setState({selected_route: {
+                  id: train_route.route_id,
+                  color: train_route.route_color,
+                  bool: true,
+                }});
+                this.toggle();
+              }}
+              key = {index.toString()}
+              color = { train_route.route_color }
+              id = { train_route.route_id }
             />;
           })
         );
@@ -49,34 +62,41 @@ class TrainRouteSelector extends Component {
       }
     };
 
-    const generate_train_trips = (train_trips) => {
-      if (train_trips.length > 0) {
-        return <span style={{backgroundColor: `#${ this.state.selected_route.color }`}} className="selected-train-route">{ this.state.selected_route.id }</span>;
-      } 
-      else {
-        return <span>No route selected.</span>;
-      }
-    };
+    // const generateTrainTrips = (train_trips) => {
+    //   if (train_trips.length > 0) {
+    //     return(
+    //       train_trips.map((train_trip, index) => {
+    //         return <span key={index.toString()}>
+    //           Train Trip ID: { train_trip.trip.trip_id } <br/>
+    //           Train Stop IDs: { train_trip.stop_time_update.map(stop => stop.stop_id) }<br/>
+    //         </span>;
+    //       })
+    //     );
+
+    //   } 
+    //   else {
+    //     return <span>No trips available.</span>;
+    //   }
+    // };
+
 
     return (
       <Fragment>
-        <Button outline color="info" onClick={ this.toggle } style={{ marginBottom: '1rem' }}>Select a Route</Button>
-
+        <Button outline color="info" onClick={ this.toggle } style={{ margin: '1rem 0' }}>Select a Route</Button>
         <Container>
           <div className="train-route-selector">
             <Collapse isOpen={this.state.collapse}>
               <Container>
-                <p> { generate_train_routes(this.props.train_routes) } </p>
+                <p> { generateTrainRoutes(this.props.train_routes) } </p>
               </Container>        
             </Collapse>
           </div>
         </Container>
         <hr/>
-        <div className="train-route">
-          <Container>
-            { generate_train_trips(this.props.train_trips) } 
-          </Container>       
-        </div>
+        <TrainRoute 
+          route_id={this.state.selected_route.id}
+          route_color={this.state.selected_route.color}
+        />
       </Fragment>
     );
   }

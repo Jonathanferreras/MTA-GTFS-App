@@ -17,7 +17,7 @@ router.get('/', async(req, res, next) => {
 router.get('/:train_route_id', async(req, res, next) => {
   try {
     const train_route = await controller.getTrainRoute(req.params.train_route_id);
-    res.status(200).json(train_route)    
+    res.status(200).send(train_route)    
   } 
   catch (error) {
     console.log('An error occurred while getting train route, Error: ' + error)
