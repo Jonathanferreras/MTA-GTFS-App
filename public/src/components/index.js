@@ -1,3 +1,4 @@
-export { default as Nav } from './Nav/Nav';
-export { default as TrainRouteSelector } from './TrainRouteSelector/TrainRouteSelector';
-export { default as Clock } from './Clock/Clock';
+export { default as Nav } from './Nav';
+export { default as Clock } from './Clock';
+export { default as TrainRouteSelector } from './TrainRouteSelector';
+export { default as TrainRoute } from './TrainRoute';

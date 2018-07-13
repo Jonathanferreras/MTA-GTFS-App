@@ -1,4 +1,4 @@
-import { FETCH_TRAIN_ROUTES } from '../constants/types';
+import { FETCH_TRAIN_ROUTES, FETCH_SELECTED_TRAIN_ROUTE } from '../constants/types';
 
 const initialState = {
   train_routes: []

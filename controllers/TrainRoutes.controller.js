@@ -5,8 +5,10 @@ exports.getAllTrainRoutes = () => {
     train_route_model.find({}, (error, train_routes) => {
       if(error)
         console.log('An error has occurred, ' + error);
-      else
-        resolve(train_routes);
+      else{
+        let filtered_train_routes = train_routes.filter(train_route => !train_route.route_id.includes("X"))
+        resolve(filtered_train_routes);
+      }
     })
   });
 }

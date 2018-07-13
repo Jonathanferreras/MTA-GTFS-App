@@ -11,7 +11,7 @@ class Nav extends Component {
       <Fragment>
         <Navbar color="light" light expand="md">
           <NavbarBrand>MTA</NavbarBrand>
-          <NavbarToggler className="mr-2" />
+          {/* <NavbarToggler className="mr-2" /> */}
         </Navbar>      
       </Fragment>
     );

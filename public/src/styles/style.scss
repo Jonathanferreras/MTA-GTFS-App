@@ -1,9 +1,8 @@
 @import 'colors';
-@import '../components/Nav/Nav';
-@import '../components/Clock/Clock';
-@import '../components/TrainRouteSelector/TrainRouteSelector';
-@import '../components/TrainRouteButton/TrainRouteButton';
-@import '../components/TrainRoute/TrainRoute';
+@import '../components/Nav/index';
+@import '../components/Clock/index';
+@import '../components/TrainRouteSelector/index';
+@import '../components/TrainRoute/index';
 
 body {
   background-color: $blue;
@@ -19,9 +18,9 @@ body {
 
   display: flex;
   align-items: center;
-  // justify-content: center;
   flex-direction: column;
 }
+
 
 
 

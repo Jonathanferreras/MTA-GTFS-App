@@ -1,8 +1,9 @@
 .train-route {
   margin-right: auto;
+  display: flex;
 }
 
-.selected-train-route {
+.train-route-line {
   font-size: 2em;
   width: 100px;
   height: 100px;
@@ -19,5 +20,25 @@
     font-size: 1em;
     width: 50px;
     height: 50px;
+  }
+}
+
+.train-route-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  margin-left: 10px;
+
+  @media only screen and (max-width: 767px) {
+    font-size: 1em;
+  }
+}
+
+.train-route-stops {
+  margin-top: 10px;
+  
+  .train-route-stop {
+    list-style: none;
   }
 }
