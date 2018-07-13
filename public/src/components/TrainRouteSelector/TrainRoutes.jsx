@@ -19,8 +19,8 @@ class TrainRoutes extends Component {
             
           return <TrainRouteButton
             onClick={ () => {
-              this.props.fetchSelectedTrainRoute(train_route);
               this.props.onClick();
+              this.props.fetchSelectedTrainRoute(train_route);
             }}
             key={ index.toString() }
             color={ train_route.route_color }

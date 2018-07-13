@@ -27,10 +27,10 @@ class App extends Component {
               <Col style={ Style } xs="12" md="6">
                 <TrainRoute />
               </Col>
-              <Col style={ Style } xs="12" md="6">
+              {/* <Col style={ Style } xs="12" md="6">
                 <div>google maps</div>
                 <div>d3.js chart</div>
-              </Col>
+              </Col> */}
             </Row>
           </Container>
         </div>

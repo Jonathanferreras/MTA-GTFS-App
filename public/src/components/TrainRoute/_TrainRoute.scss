@@ -1,9 +1,18 @@
-.train-route {
+// .train-route {
+//   display: flex;
+//   align-items: center;
+//   flex-direction: column;
+// }
+.train-route-line {
   margin-right: auto;
+
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.train-route-line {
+.train-route-line-sign {
   font-size: 2em;
   width: 100px;
   height: 100px;
@@ -35,8 +44,20 @@
   }
 }
 
+.train-route-direction {
+  margin-left: 17px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  @media only screen and (max-width: 767px){
+    margin-left: 0;
+  }
+}
+
 .train-route-stops {
   margin-top: 10px;
+  padding: 0;
+  text-align: center;
   
   .train-route-stop {
     list-style: none;

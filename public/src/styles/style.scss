@@ -1,8 +1,8 @@
 @import 'colors';
-@import '../components/Nav/index';
-@import '../components/Clock/index';
-@import '../components/TrainRouteSelector/index';
-@import '../components/TrainRoute/index';
+@import '../components/Nav/Nav';
+@import '../components/Clock/Clock';
+@import '../components/TrainRouteSelector/TrainRouteSelector';
+@import '../components/TrainRoute/TrainRoute';
 
 body {
   background-color: $blue;
@@ -21,6 +21,18 @@ body {
   flex-direction: column;
 }
 
+.btn-outline-info {
+  color: $white;
+  background-color: transparent;
+  background-image: none;
+  border-color: $white;
+  margin-left: auto;
+}
+
+.btn-outline-info .active{
+  color: $white;
+  border-color: $white;
+}
 
 
 
