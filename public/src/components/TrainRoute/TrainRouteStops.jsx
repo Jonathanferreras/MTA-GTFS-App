@@ -20,7 +20,7 @@ class TrainRouteStops extends Component {
             })
             .filter(train_stop => train_stop.stop_id.includes(this.props.train_route_direction))
             .map((train_stop, index) => {
-              return <li className="train-route-stop" key={ index.toString() }>{ train_stop.stop_name }</li>;
+              return <li className="train-route-stop" key={ index.toString() }>{ train_stop.stop_name } { train_stop.stop_id }</li>;
             })
           }
         </ul>
@@ -36,7 +36,7 @@ class TrainRouteStops extends Component {
 }
 
 TrainRouteStops.propTypes = {
-  train_stops: PropTypes.array,
+  train_stops: PropTypes.object,
   train_route_direction: PropTypes.string
 };
 

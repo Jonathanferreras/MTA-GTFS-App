@@ -4,7 +4,8 @@ import {
   Nav, 
   Clock,
   TrainRouteSelector,
-  TrainRoute  
+  TrainRoute,
+  Map  
 } from './components';
 
 class App extends Component {
@@ -26,6 +27,9 @@ class App extends Component {
             <Row>
               <Col style={ Style } xs="12" md="6">
                 <TrainRoute />
+              </Col>
+              <Col>
+                <Map />
               </Col>
               {/* <Col style={ Style } xs="12" md="6">
                 <div>google maps</div>

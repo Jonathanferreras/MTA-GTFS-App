@@ -1,5 +1,5 @@
 const mongoose     = require('mongoose');
-const mongo_config = require('../config/mongoConfig');
+const mongo_config = require('../config/mongo.config');
 
 mongoose.connect(`mongodb://127.0.0.1:27017/${ mongo_config.uri.local }`, { useNewUrlParser: true });
 
