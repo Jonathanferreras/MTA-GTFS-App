@@ -24,7 +24,7 @@ class TrainLocations extends Component {
 }
 
 TrainLocations.propTypes = {
-  train_stops: PropTypes.object
+  train_stops: PropTypes.array
 };
 
 const mapStateToProps = state => ({

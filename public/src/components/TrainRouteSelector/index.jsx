@@ -20,7 +20,6 @@ export default class TrainRouteSelector extends Component {
       <Fragment>
         <div className="train-route-selector-container">
           <Button className="selector-toggle-btn" outline color="info" onClick={ this.toggle }>Select a route</Button>
-
           <Container>
             <div className="train-route-selector">
               <Collapse isOpen={ this.state.collapse }>

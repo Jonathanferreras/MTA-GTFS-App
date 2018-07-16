@@ -12,7 +12,7 @@ class Map extends Component {
         googleMapURL={ Url }
         isMarkerShown
         loadingElement={ <div style={{ height: `100%` }} /> }
-        containerElement={ <div style={{ height: `400px` }} /> }
+        containerElement={ <div className="map" style={{ height: `400px` }} /> }
         mapElement={ <div style={{ height: `100%` }} /> }
       />
     );

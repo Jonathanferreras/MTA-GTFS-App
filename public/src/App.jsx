@@ -31,10 +31,6 @@ class App extends Component {
               <Col>
                 <Map />
               </Col>
-              {/* <Col style={ Style } xs="12" md="6">
-                <div>google maps</div>
-                <div>d3.js chart</div>
-              </Col> */}
             </Row>
           </Container>
         </div>
