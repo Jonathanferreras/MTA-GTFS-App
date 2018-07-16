@@ -22,5 +22,3 @@ exports.jsonToCsv = (json) => {
 
   return csvjson.toCSV(file, options);  
 }
-
-jsonToCsv(require('../files/TrainTrips'))

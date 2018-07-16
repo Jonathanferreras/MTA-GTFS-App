@@ -1,10 +1,9 @@
 const convert_file      = require('../utils/convertFile');
-const train_stop_model  = require('../models/TrainStops.model');
-const train_route_model = require('../models/TrainRoutes.model');
+const train_stops_model  = require('../models/TrainStops.model');
+const train_routes_model = require('../models/TrainRoutes.model');
 
 const train_stops  = convert_file.csvToJson('files/TrainStops.csv');
 const train_routes = convert_file.csvToJson('files/TrainRoutes.csv');
-// const train_trips = require('../files/TrainTrips');
 
 const createCollection = (entries, model) => {
   try {
@@ -19,7 +18,7 @@ const createCollection = (entries, model) => {
   }
 }
 
-createCollection(train_stops, train_stop_model);
-createCollection(train_routes, train_route_model);
+createCollection(train_stops, train_stops_model);
+createCollection(train_routes, train_routes_model);
 
 console.log('Hit ctrl + c to exit');   

@@ -3,7 +3,7 @@ const mongo_config = require('../config/mongo.config');
 
 mongoose.connect(`mongodb://127.0.0.1:27017/${ mongo_config.uri.local }`, { useNewUrlParser: true });
 
-const train_route_schema = mongoose.Schema({
+const train_routes_schema = mongoose.Schema({
   route_id: String,
   agency_id: String,
   route_short_name: String,
@@ -15,4 +15,4 @@ const train_route_schema = mongoose.Schema({
   route_text_color: String
 });
 
-module.exports = mongoose.model('train routes', train_route_schema);
+module.exports = mongoose.model('train routes', train_routes_schema);

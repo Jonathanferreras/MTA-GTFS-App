@@ -10,14 +10,14 @@ class TrainLocations extends Component {
         <Fragment>
           {
             this.props.train_stops.map((train_stop, index) => {
-              return <Marker key={ index.toString() } position={{ lat: parseFloat(train_stop.stop_lat), lng: parseFloat(train_stop.stop_lon) }} />;
+              return <Marker key={ index.toString() } position={{ lat: parseFloat(train_stop.GTFS_Latitude), lng: parseFloat(train_stop.GTFS_Longitude) }} />;
             })
           }
         </Fragment>
       );
     }
     else {
-      return <Marker position={{ lat: 40.7128, lng: -74.0060 }} />;
+      return <Marker position={{ lat: 40.804138, lng: -73.937594 }} />;
     }
 
   }

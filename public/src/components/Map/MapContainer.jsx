@@ -4,9 +4,14 @@ import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-map
 
 import TrainLocations from './TrainLocations';
 
+const NYC_coords = {
+  lat: 40.7128,
+  lon: -74.0060
+};
+
 const MapContainer = withScriptjs(
   withGoogleMap((props) => 
-    <GoogleMap defaultZoom={ 10 } defaultCenter={{ lat: 40.7128, lng: -74.0060 }}>
+    <GoogleMap defaultZoom={ 9.7 } defaultCenter={{ lat: 40.804138, lng: -73.937594 }}>
       <TrainLocations />
     </GoogleMap>
   )

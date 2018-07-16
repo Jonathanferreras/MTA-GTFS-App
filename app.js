@@ -29,8 +29,6 @@ app.use('/', index_router);
 app.use('/api/TrainRoute', train_routes_router);
 app.use('/api/TrainTrips', train_trips_router);
 app.use('/api/TrainStops', train_stops_router);
-// app.use('/api/trips', trips_router);
-// app.use('/api/stops', stops_router);
 
 
 // catch 404 and forward to error handler
