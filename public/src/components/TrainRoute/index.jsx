@@ -7,7 +7,7 @@ import TrainRouteStops from './TrainRouteStops';
 class TrainRoute extends Component {
   render() {
     return (
-      <div>
+      <div className="train-route">
         <TrainRouteLine />
         <TrainRouteStops />
       </div>
