@@ -26,7 +26,7 @@ if(process.env.NODE_ENV.trim() !== 'production'){
 
 
 app.use('/', index_router);
-app.use('/api/TrainRoute', train_routes_router);
+app.use('/api/TrainRoutes', train_routes_router);
 app.use('/api/TrainTrips', train_trips_router);
 app.use('/api/TrainStops', train_stops_router);
 

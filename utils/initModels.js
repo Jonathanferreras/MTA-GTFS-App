@@ -5,10 +5,15 @@ const train_routes_model = require('../models/TrainRoutes.model');
 const train_stops  = convert_file.csvToJson('files/TrainStops.csv');
 const train_routes = convert_file.csvToJson('files/TrainRoutes.csv');
 
-const createCollection = (entries, model) => {
+const createCollection = async (entries, model) => {
   try {
+    let isCollection = Object.keys(model.db.collections).includes(model.collection.collectionName);
+
+    if(isCollection)
+      await model.remove({}, () => console.log(`Collection ${model.collection.collectionName} was dropped`));
+
     console.log(`Creating collection: ${model.collection.collectionName}`);
-    entries.forEach( entry => model.create(entry) );    
+    entries.forEach( entry => model.create(entry) ); 
   } 
   catch (error) {
     console.log('Error occurred: ' + error);

@@ -16,7 +16,7 @@ exports.getAllTrainStops = () => {
 
 exports.getTrainStopsByTrain = train_route_id => {
   return new Promise((resolve, reject) => {
-    train_stop_model.find({ 'GTFS_Stop_ID' : { $regex: '^' + train_route_id, $options: 'i' } }, (error, train_stops) => {
+    train_stop_model.find({ 'stop_id' : { $regex: '^' + train_route_id, $options: 'i' } }, (error, train_stops) => {
       if(error)
         console.log('An error has occurred, ' + error);
       else

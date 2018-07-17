@@ -1,7 +1,7 @@
 import { FETCH_TRAIN_ROUTES} from '../constants/types';
 
 export const fetchTrainRoutes = () => dispatch => {
-  let url = '/api/TrainRoute';
+  let url = '/api/TrainRoutes';
 
   fetch(url)
   .then(res => res.json())

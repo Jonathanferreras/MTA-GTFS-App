@@ -26,7 +26,6 @@ class App extends Component {
             <TrainRouteSelector/>
             <Row>
               <Col style={ Style }>
-                <h2><strong>Train Stop Locations</strong></h2>
                 <Map />
               </Col>
               <Col style={ Style } xs="12" md="6">
