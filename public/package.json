@@ -6,6 +6,7 @@
     "bootstrap": "^4.1.1",
     "moment-timezone": "^0.5.20",
     "react": "^16.4.1",
+    "react-delay": "^0.1.0",
     "react-dom": "^16.4.1",
     "react-google-maps": "^9.4.5",
     "react-icons": "^2.2.7",
