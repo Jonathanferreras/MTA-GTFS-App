@@ -1,7 +1,9 @@
 const mongoose     = require('mongoose');
-const mongo_config = require('../config/mongo.config');
+const mongo_config = require('../config/mongoConfig');
 
-mongoose.connect(`mongodb://127.0.0.1:27017/${ mongo_config.uri.local }`, { useNewUrlParser: true });
+const uri = mongo_config.url + mongo_config.db.dev
+
+mongoose.connect(uri, { useNewUrlParser: true });
 
 const train_routes_schema = mongoose.Schema({
   route_id: String,

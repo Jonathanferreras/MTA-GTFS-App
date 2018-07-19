@@ -1,7 +1,9 @@
 const mongoose     = require('mongoose');
-const mongo_config = require('../config/mongo.config');
+const mongo_config = require('../config/mongoConfig');
 
-mongoose.connect(`mongodb://127.0.0.1:27017/${ mongo_config.uri.local }`, { useNewUrlParser: true });
+const uri = mongo_config.url + mongo_config.db.dev
+
+mongoose.connect(uri, { useNewUrlParser: true });
 
 const train_stops_schema = mongoose.Schema({
 stop_id: String,
@@ -14,7 +16,6 @@ zone_id: String,
 stop_url: String,
 location_type: String,
 parent_station: String
-
 });
 
 module.exports = mongoose.model('train stops', train_stops_schema);

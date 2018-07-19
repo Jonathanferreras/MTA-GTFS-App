@@ -1,5 +1,5 @@
-export { fetchTrainRoutes } from './TrainRoutes.actions';
-export { fetchSelectedTrainRoute } from './TrainRoute.actions';
-export { fetchTrainTrips } from './TrainTrips.actions';
-export { fetchTrainStops } from './TrainStops.actions';
-export { setRouteDirection } from './TrainRouteDirection.actions';
+export { fetchTrainRoutes } from './TrainRoutes';
+export { fetchSelectedTrainRoute } from './TrainRoute';
+// export { fetchTrainTrips } from './TrainTrips';
+export { fetchTrainStops } from './TrainStops';
+export { setRouteDirection } from './TrainRouteDirection';

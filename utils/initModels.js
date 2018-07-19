@@ -7,23 +7,25 @@ const train_routes = convert_file.csvToJson('files/TrainRoutes.csv');
 
 const createCollection = async (entries, model) => {
   try {
-    let isCollection = Object.keys(model.db.collections).includes(model.collection.collectionName);
+    let collection_name = model.collection.collectionName
+    let collectionExists = Object.keys(model.db.collections).includes(collection_name);
 
-    if(isCollection)
-      await model.remove({}, () => console.log(`Collection ${model.collection.collectionName} was dropped`));
+    if(collectionExists)
+      await model.remove({}, () => console.log(`Collection ${ collection_name } was dropped`));
 
-    console.log(`Creating collection: ${model.collection.collectionName}`);
+    console.log(`Creating collection: ${ collection_name }`);
     entries.forEach( entry => model.create(entry) ); 
   } 
   catch (error) {
     console.log('Error occurred: ' + error);
   }
   finally {
-    console.log('Done!');
+    console.log('Done!' + '\n');
   }
 }
 
-createCollection(train_stops, train_stops_model);
-createCollection(train_routes, train_routes_model);
-
-console.log('Hit ctrl + c to exit');   
+(async() => {
+  await createCollection(train_stops, train_stops_model);
+  await createCollection(train_routes, train_routes_model);  
+  await console.log('Hit ctrl + c to exit');
+})();

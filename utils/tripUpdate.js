@@ -1,7 +1,7 @@
 const MtaGtfsRealtimeBindings = require('mta-gtfs-realtime-bindings');
 const request = require('request');
 
-const gtfs_config = require('../config/mtaGtfs.config');
+const gtfs_config = require('../config/mtaGtfsConfig');
 
 exports.getUpdate = () => {
   return new Promise((resolve, reject) => {

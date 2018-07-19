@@ -1,8 +1,8 @@
-const train_route_model = require('../models/TrainRoutes.model');
+const train_routes_model = require('../models/TrainRoutes.model');
 
 exports.getAllTrainRoutes = () => {
   return new Promise((resolve, reject) => {
-    train_route_model.find({}, (error, train_routes) => {
+    train_routes_model.find({}, (error, train_routes) => {
       if(error)
         console.log('An error has occurred, ' + error);
       else{
@@ -15,7 +15,7 @@ exports.getAllTrainRoutes = () => {
 
 exports.getTrainRoute = train_route_id => {
   return new Promise((resolve, reject) => {
-    train_route_model.findOne({ 'route_id' : train_route_id }, (error, train_route) => {
+    train_routes_model.findOne({ 'route_id' : train_route_id }, (error, train_route) => {
       if(error)
         console.log('An error has occurred, ' + error);
       else

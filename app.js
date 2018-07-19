@@ -5,9 +5,9 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 const index_router = require('./routes/index');
-const train_routes_router = require('./routes/TrainRoutes.route');
-const train_trips_router = require('./routes/TrainTrips.route');
-const train_stops_router = require('./routes/TrainStops.route');
+const train_routes_router = require('./routes/TrainRoutes');
+const train_trips_router = require('./routes/TrainTrips');
+const train_stops_router = require('./routes/TrainStops');
 
 const app = express();
 
@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-if(process.env.NODE_ENV.trim() !== 'production'){
+if(process.env.NODE_ENV.trim() === 'production'){
   app.use(express.static(path.join(__dirname, 'public/dist')));
 }
 

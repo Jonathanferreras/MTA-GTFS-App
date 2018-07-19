@@ -2,33 +2,29 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import { Marker } from "react-google-maps";
-import Delay  from 'react-delay';
+
+import { NEW_YORK_CITY } from '../../constants/coordinates';
 
 class TrainLocations extends Component {
-  componentDidMount(){
-
-  }
   render() {
     if(this.props.train_stops.length > 0){
       return (
         <Fragment>
           {
             this.props.train_stops.map((train_stop, index) => {
-              return <Delay key={ index.toString() }>
-                <Marker key={ index.toString() } 
+              return <Marker 
+                key={ index.toString() } 
                 position={{ lat: parseFloat(train_stop.stop_lat), lng: parseFloat(train_stop.stop_lon) }}
                 animation= { google.maps.Animation.DROP }
-                />
-              </Delay>;
+              />;
             })
           }
         </Fragment>
       );
     }
     else {
-      return <Marker position={{ lat: 40.804138, lng: -73.937594 }} />;
+      return <Marker position={{ lat: NEW_YORK_CITY.lat, lng: NEW_YORK_CITY.lng }} />;
     }
-
   }
 }
 

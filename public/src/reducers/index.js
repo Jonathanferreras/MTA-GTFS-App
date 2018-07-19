@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import TrainTripsReducer from './TrainTrips.reducer';
-import TrainRoutesReducer from './TrainRoutes.reducer';
-import TrainRouteReducer from './TrainRoute.reducer';
-import TrainStopsReducer from './TrainStops.reducer';
-import TrainRouteDirectionReducer from './TrainRouteDirection.reducer';
+import TrainTripsReducer from './TrainTrips';
+import TrainRoutesReducer from './TrainRoutes';
+import TrainRouteReducer from './TrainRoute';
+import TrainStopsReducer from './TrainStops';
+import TrainRouteDirectionReducer from './TrainRouteDirection';
 
 export default combineReducers({
   train_trips: TrainTripsReducer,
