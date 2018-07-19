@@ -9,6 +9,8 @@ const train_routes_router = require('./routes/TrainRoutes');
 const train_trips_router = require('./routes/TrainTrips');
 const train_stops_router = require('./routes/TrainStops');
 
+
+
 const app = express();
 
 // view engine setup
@@ -22,6 +24,7 @@ app.use(cookieParser());
 
 if(process.env.NODE_ENV.trim() === 'production'){
   app.use(express.static(path.join(__dirname, 'public/dist')));
+  require('./utils/initModels').init();
 }
 
 

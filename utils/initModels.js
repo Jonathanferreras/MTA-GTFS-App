@@ -24,8 +24,13 @@ const createCollection = async (entries, model) => {
   }
 }
 
-(async() => {
+exports.init = async() => {
   await createCollection(train_stops, train_stops_model);
-  await createCollection(train_routes, train_routes_model);  
-  await console.log('Hit ctrl + c to exit');
-})();
+  await createCollection(train_routes, train_routes_model); 
+}
+
+// (async() => {
+//   await createCollection(train_stops, train_stops_model);
+//   await createCollection(train_routes, train_routes_model);  
+//   await console.log('Hit ctrl + c to exit');
+// })();

@@ -8,7 +8,8 @@
     "build": "cd public && npm run build",
     "reset": "git reset --hard && git clean -fd",
     "server": "export NODE_ENV=development && nodemon ./bin/www",
-    "models": "node ./utils/initModels.js",
+    "models:prod": "export NODE_ENV=production && node ./utils/initModels.js",
+    "models:dev": "export NODE_ENV=development && node ./utils/initModels.js",
     "dev": "concurrently --kill-others-on-fail \"export NODE_ENV=development && npm run server\" \"cd public && npm run app\"  "
   },
   "dependencies": {

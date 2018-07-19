@@ -1,9 +1,7 @@
-const mongoose     = require('mongoose');
-const mongo_config = require('../config/mongoConfig');
+const mongoose = require('../utils/connectToDB').connectToDB();
 
-const uri = mongo_config.url + mongo_config.db.dev
-
-mongoose.connect(uri, { useNewUrlParser: true });
+if(mongoose === false)
+  throw new Error('Unable to connect to database');
 
 const train_routes_schema = mongoose.Schema({
   route_id: String,
