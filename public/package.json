@@ -2,6 +2,10 @@
   "name": "mta-gtfs-app",
   "version": "1.0.0",
   "description": "",
+  "scripts": {
+    "app": "webpack-dev-server --mode development --hot",
+    "build": "webpack --mode production"
+  },
   "dependencies": {
     "bootstrap": "^4.1.1",
     "moment-timezone": "^0.5.20",
@@ -39,10 +43,6 @@
     "webpack": "^4.12.0",
     "webpack-cli": "^3.0.6",
     "webpack-dev-server": "^3.1.4"
-  },
-  "scripts": {
-    "app": "webpack-dev-server --mode development --hot",
-    "build": "webpack --mode production"
   },
   "author": "Jonathan Ferreras",
   "license": "ISC",

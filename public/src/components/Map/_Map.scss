@@ -3,6 +3,9 @@
   margin-bottom: 20px;
   width: inherit;
   height: 400px;
+  background-color: $white;
+  border-radius: 20px;
+  box-shadow: 1px 3px 10px 0px rgba(0, 0, 0, 0.5);
 
   @media only screen and (max-width: 767px){
     height: 300px;

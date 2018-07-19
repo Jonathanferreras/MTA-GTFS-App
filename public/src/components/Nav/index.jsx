@@ -10,8 +10,7 @@ class Nav extends Component {
     return(
       <Fragment>
         <Navbar color="light" light expand="md">
-          <NavbarBrand>MTA</NavbarBrand>
-          {/* <NavbarToggler className="mr-2" /> */}
+          <NavbarBrand>MTA-GTFS-App</NavbarBrand>
         </Navbar>      
       </Fragment>
     );

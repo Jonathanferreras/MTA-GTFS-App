@@ -8,8 +8,11 @@ const TrainRouteButton = (Props) => {
 
   return (
     <Button title={`${Props.id} Train`} 
-    onClick={ Props.onClick } 
-    className="train-route-btn" style={ Style }>{ Props.id }</Button>
+      onClick={ Props.onClick } 
+      className="train-route-btn" 
+      style={ Style }
+      >{ Props.id }
+    </Button>
   );
 };
 
