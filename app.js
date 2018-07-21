@@ -7,9 +7,9 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 // uncomment if running app for production locally
-if(production) {
-  require('dotenv').config();
-}
+// if(production) {
+//   require('dotenv').config();
+// }
 
 const index_router = require('./routes/index');
 const train_routes_router = require('./routes/TrainRoutes');
