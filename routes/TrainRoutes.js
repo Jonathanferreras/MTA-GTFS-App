@@ -6,22 +6,22 @@ const controller = require('../controllers/TrainRoutes');
 router.get('/', async(req, res, next) => {
   try {
     const train_routes = await controller.getAllTrainRoutes();
-    res.status(200).send(train_routes)    
+    res.status(200).send(train_routes);    
   } 
   catch (error) {
     console.log('An error occurred while getting all train routes, Error: ' + error)
-    res.status(500).send()    
+    res.status(500).send();    
   }
 });
 
 router.get('/:train_route_id', async(req, res, next) => {
   try {
     const train_route = await controller.getTrainRoute(req.params.train_route_id);
-    res.status(200).send(train_route)    
+    res.status(200).send(train_route);    
   } 
   catch (error) {
-    console.log('An error occurred while getting train route, Error: ' + error)
-    res.status(500).send()    
+    console.log('An error occurred while getting train route, Error: ' + error);
+    res.status(500).send();    
   }
 });
 

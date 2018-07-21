@@ -12,9 +12,10 @@ const createCollection = async (entries, model) => {
 
     if(collectionExists)
       await model.remove({}, () => console.log(`Collection ${ collection_name } was dropped`));
+      
 
     console.log(`Creating collection: ${ collection_name }`);
-    entries.forEach( entry => model.create(entry) ); 
+    await entries.forEach( entry => model.create(entry) ); 
   } 
   catch (error) {
     console.log('Error occurred: ' + error);
@@ -24,13 +25,5 @@ const createCollection = async (entries, model) => {
   }
 }
 
-exports.init = async() => {
-  await createCollection(train_stops, train_stops_model);
-  await createCollection(train_routes, train_routes_model); 
-}
-
-// (async() => {
-//   await createCollection(train_stops, train_stops_model);
-//   await createCollection(train_routes, train_routes_model);  
-//   await console.log('Hit ctrl + c to exit');
-// })();
+createCollection(train_stops, train_stops_model);
+createCollection(train_routes, train_routes_model); 

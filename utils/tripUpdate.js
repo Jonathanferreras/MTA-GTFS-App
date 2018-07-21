@@ -1,13 +1,22 @@
 const MtaGtfsRealtimeBindings = require('mta-gtfs-realtime-bindings');
 const request = require('request');
+let key;
 
-const gtfs_config = require('../config/mtaGtfsConfig');
+if(process.env.NODE_ENV.trim() === 'production'){
+        require('dotenv').config();
 
-exports.getUpdate = () => {
+  key = process.env.MTA_GTFS_API_KEY;
+}
+else {
+  const mta_gtfs_config = require('../config/mtaGtfsConfig');
+  key = mta_gtfs_config.MTA_GTFS_API_KEY;
+}
+
+const tripUpdate = () => {
   return new Promise((resolve, reject) => {
     let settings = {
       method: 'GET',
-      url: `http://datamine.mta.info/mta_esi.php?key=${gtfs_config.key}`,
+      url: `http://datamine.mta.info/mta_esi.php?key=${ key }`,
       encoding: null,
     }
     
@@ -21,3 +30,5 @@ exports.getUpdate = () => {
     });
   });
 }
+
+module.exports = tripUpdate;

@@ -8,8 +8,7 @@ const index_router = require('./routes/index');
 const train_routes_router = require('./routes/TrainRoutes');
 const train_trips_router = require('./routes/TrainTrips');
 const train_stops_router = require('./routes/TrainStops');
-
-
+const google_maps_router = require('./routes/GoogleMapsApiKey');
 
 const app = express();
 
@@ -24,15 +23,15 @@ app.use(cookieParser());
 
 if(process.env.NODE_ENV.trim() === 'production'){
   app.use(express.static(path.join(__dirname, 'public/dist')));
-  require('./utils/initModels').init();
-}
 
+  require('./utils/initModels');
+}
 
 app.use('/', index_router);
 app.use('/api/TrainRoutes', train_routes_router);
 app.use('/api/TrainTrips', train_trips_router);
 app.use('/api/TrainStops', train_stops_router);
-
+app.use('/api/GoogleMapsApiKey', google_maps_router);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

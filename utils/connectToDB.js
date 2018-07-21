@@ -1,21 +1,27 @@
-const mongoose     = require('mongoose');
-const mongo_config = require('../config/mongoConfig');
+const mongoose = require('mongoose');
+let uri, db;
 
-const mode = process.env.NODE_ENV.trim() === 'production';
+if(process.env.NODE_ENV.trim() === 'production'){
+  require('dotenv').config();
+  db = process.env.MONGODB_DATABASE;
+  uri = process.env.MONGODB_URI + db;
+}
+else {
+  const mongo_config = require('../config/mongoConfig');
 
-const url = mode ? mongo_config.prod.url : mongo_config.dev.url;
-const database = mode ? mongo_config.prod.db : mongo_config.dev.db
+  db = mongo_config.MONGODB_DATABASE;
+  uri = mongo_config.MONGODB_URI + db;
+}
 
-const uri = url + database;
-
-exports.connectToDB = () => {
+(() => {
   try {
     mongoose.connect(uri, { useNewUrlParser: true });
-    console.log(`Connected to: ${ uri }!\n`)
-    return mongoose;
+    console.log(`Connected to: ${ uri }\n`)
   } 
   catch (error) {
     console.log('Error occurred when attempting to connect to database: ' + error);
     return false;
   }
-}
+})();
+
+module.exports = mongoose;

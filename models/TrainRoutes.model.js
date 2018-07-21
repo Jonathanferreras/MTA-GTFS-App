@@ -1,7 +1,4 @@
-const mongoose = require('../utils/connectToDB').connectToDB();
-
-if(mongoose === false)
-  throw new Error('Unable to connect to database');
+const mongoose = require('../utils/connectToDB');
 
 const train_routes_schema = mongoose.Schema({
   route_id: String,
