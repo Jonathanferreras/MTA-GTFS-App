@@ -2,7 +2,9 @@ const mongoose = require('mongoose');
 let uri, db;
 
 if(process.env.NODE_ENV.trim() === 'production'){
-  require('dotenv').config();
+  // uncomment if running app for production locally
+  // require('dotenv').config();
+  
   db = process.env.MONGODB_DATABASE;
   uri = process.env.MONGODB_URI + db;
 }

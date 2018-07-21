@@ -6,7 +6,7 @@ router.get('/', (req, res, next) => {
     let GOOGLE_MAPS_API_KEY;
 
     if(process.env.NODE_ENV.trim() === 'production'){
-      require('dotenv').config();
+      // require('dotenv').config();
       GOOGLE_MAPS_API_KEY = process.env.GOOGLE_MAPS_API_KEY
     }
     else {

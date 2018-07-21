@@ -23,7 +23,6 @@ app.use(cookieParser());
 
 if(process.env.NODE_ENV.trim() === 'production'){
   app.use(express.static(path.join(__dirname, 'public/dist')));
-
   require('./utils/initModels');
 }
 
