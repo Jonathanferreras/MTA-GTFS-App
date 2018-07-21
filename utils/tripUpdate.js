@@ -3,9 +3,6 @@ const request = require('request');
 let key;
 
 if(process.env.NODE_ENV.trim() === 'production'){
-  // uncomment if running app for production locally
-  // require('dotenv').config();
-
   key = process.env.MTA_GTFS_API_KEY;
 }
 else {

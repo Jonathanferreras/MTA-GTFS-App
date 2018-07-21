@@ -1,8 +1,15 @@
+const production = process.env.NODE_ENV.trim() === 'production';
+
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+
+// uncomment if running app for production locally
+if(production) {
+  require('dotenv').config();
+}
 
 const index_router = require('./routes/index');
 const train_routes_router = require('./routes/TrainRoutes');
@@ -21,7 +28,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-if(process.env.NODE_ENV.trim() === 'production'){
+if(production){
   app.use(express.static(path.join(__dirname, 'public/dist')));
   require('./utils/initModels');
 }

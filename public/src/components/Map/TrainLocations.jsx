@@ -15,7 +15,7 @@ class TrainLocations extends Component {
               return <Marker 
                 key={ index.toString() } 
                 position={{ lat: parseFloat(train_stop.stop_lat), lng: parseFloat(train_stop.stop_lon) }}
-                animation= { google.maps.Animation.DROP }
+                // animation= { google.maps.Animation.DROP }
               />;
             })
           }
