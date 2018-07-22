@@ -24,7 +24,7 @@ export default class TrainRouteSelector extends Component {
             <div className="train-route-selector">
               <Collapse isOpen={ this.state.collapse }>
                 <Container>
-                  <p><TrainRoutes /></p>
+                  <p><TrainRoutes onClick={ this.toggle }/></p>
                 </Container>
               </Collapse>
             </div>
