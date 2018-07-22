@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "install": "cd public && npm i",
-    "start": "npm run build && export NODE_ENV=production && node ./bin/www",
+    "start": "export NODE_ENV=production && node ./bin/www",
     "build": "cd public && npm run build",
     "reset": "git reset --hard && git clean -fd",
     "server": "export NODE_ENV=development && nodemon ./bin/www",
