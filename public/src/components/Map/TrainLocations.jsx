@@ -11,9 +11,7 @@ class TrainLocations extends Component {
       const stops = this.props.train_stops.map((train_stop, index) => {
         return { lat: parseFloat(train_stop.stop_lat), lng: parseFloat(train_stop.stop_lon) };
       }); 
-
-      console.log(stops);
-
+      
       return (
         <Fragment>
           {

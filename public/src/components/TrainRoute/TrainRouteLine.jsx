@@ -21,7 +21,6 @@ class TrainRouteLine extends Component {
         <div className="train-route-line">
           <span className="train-route-line-sign" style={ Style } ><strong>{ this.props.train_route.route_id }</strong></span>
           <span className="train-route-name"><strong>{ this.props.train_route.route_long_name }</strong></span>
-          {/* <TrainRouteDirection /> */}
         </div>
       );
     }

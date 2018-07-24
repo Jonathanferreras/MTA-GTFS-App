@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import { ButtonGroup, Button } from 'reactstrap';
 
-import {setRouteDirection} from '../../actions';
+import { setRouteDirection } from '../../actions';
 
 class TrainRouteDirection extends Component {
   constructor(props){
