@@ -7,6 +7,7 @@ import {
   TrainRoute,
   Map  
 } from './components';
+import TrainRouteLine from './components/TrainRoute/TrainRouteLine';
 
 class App extends Component {
   render(){
@@ -24,6 +25,7 @@ class App extends Component {
             <Clock/>
             <br/>
             <TrainRouteSelector/>
+            <TrainRouteLine />
             <Row>
               <Col style={ Style }>
                 <Map />
@@ -31,7 +33,6 @@ class App extends Component {
               <Col style={ Style } xs="12" md="6">
                 <TrainRoute />
               </Col>
-
             </Row>
           </Container>
         </div>

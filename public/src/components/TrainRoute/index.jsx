@@ -8,7 +8,7 @@ class TrainRoute extends Component {
   render() {
     return (
       <div className="train-route">
-        <TrainRouteLine />
+        {/* <TrainRouteLine /> */}
         <TrainRouteStops />
       </div>
     );
