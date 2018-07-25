@@ -28,7 +28,7 @@ exports.getTrainTripsByTrain = train_route_id => {
 
       (trips.entity).forEach(train => {
         if(train.trip_update){
-          if(train.trip_update.trip.route_id == train_route_id){
+          if(train.trip_update.trip.route_id[0] === train_route_id){
             results.push(train.trip_update);
           }
         }

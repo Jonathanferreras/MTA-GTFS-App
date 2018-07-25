@@ -42,7 +42,7 @@ TrainRoutes.propTypes = {
   fetchTrainRoutes: PropTypes.func,
   fetchSelectedTrainRoute: PropTypes.func,
   fetchTrainTrips: PropTypes.func,
-  train_routes: PropTypes.array,
+  train_routes: PropTypes.object,
   onClick: PropTypes.func
 };
 
