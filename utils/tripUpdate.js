@@ -1,5 +1,6 @@
 const MtaGtfsRealtimeBindings = require('mta-gtfs-realtime-bindings');
 const request = require('request');
+const feed_ids = require('../files/TrainFeed');
 let key;
 
 if(process.env.NODE_ENV.trim() === 'production'){
@@ -10,11 +11,20 @@ else {
   key = mta_gtfs_config.MTA_GTFS_API_KEY;
 }
 
-const tripUpdate = () => {
+const getFeedIdByTrainRouteId = (feeds, train_route_id) => {
+  if(train_route_id){
+    return Object.keys(feeds).find(key => feeds[key].includes(train_route_id));
+  } 
+  else {
+    return '1'
+  }
+}
+
+const tripUpdate = (train_route_id) => {
   return new Promise((resolve, reject) => {
     let settings = {
       method: 'GET',
-      url: `http://datamine.mta.info/mta_esi.php?key=${ key }`,
+      url: `http://datamine.mta.info/mta_esi.php?key=${ key }&feed_id=${ getFeedIdByTrainRouteId(feed_ids, train_route_id) }`,
       encoding: null,
     }
     

@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import FaBan from 'react-icons/lib/fa/ban';
 import moment from 'moment';
-// import Timezone from 'moment-timezone';
 
 import TrainRouteDirection from './TrainRouteDirection';
 import { fetchTrainTrips } from '../../actions';

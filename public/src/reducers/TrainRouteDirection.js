@@ -1,6 +1,6 @@
 import { SET_TRAIN_ROUTE_DIRECTION } from '../constants/types';
 
-const initialState = 'N';
+const initialState = 'S';
 
 export default function(state = initialState, action) {
   switch(action.type) {

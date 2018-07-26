@@ -26,8 +26,8 @@ class TrainRouteDirection extends Component {
 
     return (
       <ButtonGroup className="train-route-direction">
-        <Button onClick={ this.handleClick } id="N" active={ this.state.isActive } outline color="info">{ "S -> N" }</Button>
-        <Button onClick={ this.handleClick } id="S"  active={ !this.state.isActive } outline color="info">{ "N -> S" }</Button>
+        <Button onClick={ this.handleClick } id="S" active={ this.state.isActive } outline color="info">{ "N -> S" }</Button>
+        <Button onClick={ this.handleClick } id="N"  active={ !this.state.isActive } outline color="info">{ "S -> N" }</Button>
       </ButtonGroup>
     );
   }

@@ -24,7 +24,7 @@ exports.getTrainTripsByTrain = train_route_id => {
     (async () => {
 
       let results = [];
-      let trips = await tripUpdate();
+      let trips = await tripUpdate(train_route_id);
 
       (trips.entity).forEach(train => {
         if(train.trip_update){
@@ -33,7 +33,7 @@ exports.getTrainTripsByTrain = train_route_id => {
           }
         }
       });
-
+      
       resolve(results);
 
     })();

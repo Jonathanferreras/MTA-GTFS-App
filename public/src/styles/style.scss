@@ -1,5 +1,6 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import 'colors';
+
 @import '../components/Nav/Nav';
 @import '../components/Clock/Clock';
 @import '../components/Map/Map';
@@ -35,8 +36,8 @@ body {
   margin-left: auto;
 }
 
-.btn-outline-info .active{
-  color: $white;
+.btn-outline-info.active{
+  color: $green !important;
   border-color: $white;
 }
 
