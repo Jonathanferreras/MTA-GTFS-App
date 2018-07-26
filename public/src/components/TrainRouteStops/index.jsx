@@ -5,7 +5,7 @@ import FaBan from 'react-icons/lib/fa/ban';
 import moment from 'moment';
 
 import TrainRouteDirection from '../TrainRouteDirection';
-import { fetchTrainTrips } from '../../actions';
+import { fetchTrainTrips } from '../../actions/fetch';
 
 class TrainRouteStops extends Component {
   componentDidMount(){
