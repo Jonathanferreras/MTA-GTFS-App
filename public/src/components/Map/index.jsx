@@ -3,19 +3,19 @@ import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types'; 
 
 import MapContainer from './MapContainer';
-import { fetchGoogleMapsApiKey } from '../../actions';
+import { fetchGMapsApiKey } from '../../actions/fetch';
 
 class Map extends Component {
   constructor(props){
     super(props);
   }
   componentDidMount(){
-    this.props.fetchGoogleMapsApiKey();
+    this.props.fetchGMapsApiKey();
   }
   render() {
-    const Url = `https://maps.googleapis.com/maps/api/js?key=${ this.props.GOOGLE_MAPS_API_KEY }`;
+    const Url = `https://maps.googleapis.com/maps/api/js?key=${ this.props.google_maps_api_key }`;
 
-    if(this.props.GOOGLE_MAPS_API_KEY !== ''){
+    if(this.props.google_maps_api_key !== ''){
       return (
         <MapContainer
           googleMapURL={ Url }
@@ -33,12 +33,12 @@ class Map extends Component {
 }
 
 Map.propTypes = {
-  fetchGoogleMapsApiKey: PropTypes.func,
-  GOOGLE_MAPS_API_KEY: PropTypes.string
+  fetchGMapsApiKey: PropTypes.func,
+  google_maps_api_key: PropTypes.string
 };
 
 const mapStateToProps = state => ({
-  GOOGLE_MAPS_API_KEY: state.GOOGLE_MAPS_API_KEY
+  google_maps_api_key: state.fetch.google_maps_api_key
 });
 
-export default connect(mapStateToProps, { fetchGoogleMapsApiKey })(Map);
+export default connect(mapStateToProps, { fetchGMapsApiKey })(Map);

@@ -2,15 +2,14 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 
-import TrainRouteDirection from './TrainRouteDirection';
-import { fetchTrainStops } from '../../actions';
+import { fetchTrainStops } from '../../actions/fetch';
 
 class TrainRouteLine extends Component {
   constructor(props){
     super(props);
   }
   render() {
-    if(Object.getOwnPropertyNames(this.props.train_route).length !== 1){
+    if(Object.getOwnPropertyNames(this.props.train_route).length > 0){
       this.props.fetchTrainStops(this.props.train_route.route_id);
 
       const Style = {
@@ -38,7 +37,7 @@ TrainRouteLine.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  train_route: state.train_route,
+  train_route: state.find.train_route,
 });
 
 export default connect(mapStateToProps, { fetchTrainStops })(TrainRouteLine);

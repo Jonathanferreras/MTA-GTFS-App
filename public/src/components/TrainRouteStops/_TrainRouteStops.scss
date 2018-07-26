@@ -1,0 +1,17 @@
+.train-route-stops-title{
+  font-size: 2em;
+
+  @media only screen and (max-width: 767px) {
+    font-size: 1em;
+  } 
+}
+
+.train-route-stops {
+  margin-top: 10px;
+  padding: 0;
+  text-align: center;
+  
+  .train-route-stop {
+    list-style: none;
+  }
+}

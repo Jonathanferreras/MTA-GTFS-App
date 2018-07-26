@@ -5,9 +5,10 @@ import {
   Clock,
   TrainRouteSelector,
   TrainRoute,
-  TrainRouteLine,
   Map
 } from './components';
+
+import TrainRouteLine from './components/TrainRoute/TrainRouteLine';
 
 class App extends Component {
   render(){

@@ -1,6 +1,6 @@
-import { FETCH_GOOGLE_MAPS_API_KEY } from '../constants/types';
+import { FETCH_GOOGLE_MAPS_API_KEY } from '../../constants/types';
 
-export const fetchGoogleMapsApiKey = () => dispatch => {
+export const fetchGMapsApiKey = () => dispatch => {
   let url = '/api/GoogleMapsApiKey';
 
   fetch(url)

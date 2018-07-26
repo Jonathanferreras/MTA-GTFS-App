@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Container, Collapse, Button } from 'reactstrap';
 
-import TrainRoutes from './TrainRoutes';
+import TrainRouteButtons from './TrainRouteButtons';
 
 export default class TrainRouteSelector extends Component {
   constructor(props){
@@ -24,7 +24,7 @@ export default class TrainRouteSelector extends Component {
             <div className="train-route-selector">
               <Collapse isOpen={ this.state.collapse }>
                 <Container>
-                  <p><TrainRoutes onClick={ this.toggle }/></p>
+                  <div><TrainRouteButtons onClick={ this.toggle }/></div>
                 </Container>
               </Collapse>
             </div>

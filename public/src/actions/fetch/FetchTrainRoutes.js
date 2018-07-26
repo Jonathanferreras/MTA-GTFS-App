@@ -1,4 +1,4 @@
-import { FETCH_TRAIN_ROUTES} from '../constants/types';
+import { FETCH_TRAIN_ROUTES } from '../../constants/types';
 
 export const fetchTrainRoutes = () => dispatch => {
   let url = '/api/TrainRoutes';

@@ -6,6 +6,9 @@
 @import '../components/Map/Map';
 @import '../components/TrainRouteSelector/TrainRouteSelector';
 @import '../components/TrainRoute/TrainRoute';
+@import '../components/TrainRouteStops/TrainRouteStops';
+@import '../components/TrainRouteDirection/TrainRouteDirection';
+@import '../components/TrainRouteLine/TrainRouteLine';
 
 body {
   background-color: $blue;

@@ -1,4 +1,4 @@
-import { FETCH_TRAIN_STOPS } from '../constants/types';
+import { FETCH_TRAIN_STOPS } from '../../constants/types';
 
 export const fetchTrainStops = (route_id) => dispatch => {
   let url = `/api/TrainStops/${ route_id }`;
@@ -12,5 +12,3 @@ export const fetchTrainStops = (route_id) => dispatch => {
     })
   );
 };
-
-
