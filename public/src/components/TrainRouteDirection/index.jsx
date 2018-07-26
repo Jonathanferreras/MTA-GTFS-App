@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import { ButtonGroup, Button } from 'reactstrap';
 
-import { setRouteDirection } from '../../actions';
+import { setTrainRouteDirection } from '../../actions/set';
 
 class TrainRouteDirection extends Component {
   constructor(props){
@@ -19,7 +19,7 @@ class TrainRouteDirection extends Component {
   handleClick(e){
     e.preventDefault();
     this.setState({ isActive: !this.state.isActive });
-    this.props.setRouteDirection(e.target.id);
+    this.props.setTrainRouteDirection(e.target.id);
   }
 
   render() {
@@ -34,13 +34,13 @@ class TrainRouteDirection extends Component {
 }
 
 TrainRouteDirection.propTypes = {
-  setRouteDirection: PropTypes.func
+  setTrainRouteDirection: PropTypes.func
 };
 
 const mapStateToProps = state => ({
-  train_route_direction: state.train_route_direction
+  train_route_direction: state.set.train_route_direction
 });
 
-export default connect(mapStateToProps, { setRouteDirection })(TrainRouteDirection);
+export default connect(mapStateToProps, { setTrainRouteDirection })(TrainRouteDirection);
 
 

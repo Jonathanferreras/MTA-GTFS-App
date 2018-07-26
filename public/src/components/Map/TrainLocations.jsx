@@ -33,11 +33,11 @@ class TrainLocations extends Component {
 }
 
 TrainLocations.propTypes = {
-  train_stops: PropTypes.object
+  train_stops: PropTypes.array
 };
 
 const mapStateToProps = state => ({
-  train_stops: state.train_stops,
+  train_stops: state.fetch.train_stops,
 });
 
 export default connect(mapStateToProps)(TrainLocations);

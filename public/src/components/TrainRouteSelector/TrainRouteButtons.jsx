@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 
 import TrainRouteButton from './TrainRouteButton';
-import { fetchTrainRoutes, fetchSelectedTrainRoute, fetchTrainTrips } from '../../actions';
+import { fetchTrainRoutes, fetchTrainTrips } from '../../actions/fetch';
+import { findSelectedTrainRoute } from '../../actions/find';
 
-class TrainRoutes extends Component {
+class TrainRouteButtons extends Component {
   componentDidMount(){
     this.props.fetchTrainRoutes();
   }
@@ -19,8 +20,9 @@ class TrainRoutes extends Component {
             
           return <TrainRouteButton
             onClick={ () => { 
-              this.props.onClick(); 
-              this.props.fetchSelectedTrainRoute(train_route); 
+              this.props.onClick();
+              this.props.findSelectedTrainRoute(train_route); 
+              // setTimeout(() => { console.log('collapsing'); }, 3000); 
               this.props.fetchTrainTrips(train_route.route_id);
             }}
             key={ index.toString() }
@@ -38,16 +40,16 @@ class TrainRoutes extends Component {
   }
 }
 
-TrainRoutes.propTypes = {
+TrainRouteButtons.propTypes = {
   fetchTrainRoutes: PropTypes.func,
-  fetchSelectedTrainRoute: PropTypes.func,
   fetchTrainTrips: PropTypes.func,
-  train_routes: PropTypes.object,
+  findSelectedTrainRoute: PropTypes.func,
+  train_routes: PropTypes.array,
   onClick: PropTypes.func
 };
 
 const mapStateToProps = state => ({
-  train_routes: state.train_routes
+  train_routes: state.fetch.train_routes
 });
 
-export default connect(mapStateToProps, { fetchTrainRoutes, fetchSelectedTrainRoute, fetchTrainTrips })(TrainRoutes);
+export default connect(mapStateToProps, { fetchTrainRoutes, fetchTrainTrips, findSelectedTrainRoute })(TrainRouteButtons);

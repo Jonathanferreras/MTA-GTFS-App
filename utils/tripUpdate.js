@@ -12,19 +12,17 @@ else {
 }
 
 const getFeedIdByTrainRouteId = (feeds, train_route_id) => {
-  if(train_route_id){
-    return Object.keys(feeds).find(key => feeds[key].includes(train_route_id));
-  } 
-  else {
-    return '1'
-  }
+  return Object.keys(feeds).find(key => feeds[key].includes(train_route_id));
 }
 
 const tripUpdate = (train_route_id) => {
   return new Promise((resolve, reject) => {
+    let get_feed_id = getFeedIdByTrainRouteId(feed_ids, train_route_id);
+    let feed_id = get_feed_id ? `&feed_id=${ get_feed_id }` : ''
+
     let settings = {
       method: 'GET',
-      url: `http://datamine.mta.info/mta_esi.php?key=${ key }&feed_id=${ getFeedIdByTrainRouteId(feed_ids, train_route_id) }`,
+      url: `http://datamine.mta.info/mta_esi.php?key=${ key }${ feed_id }`,
       encoding: null,
     }
     
