@@ -1,23 +1,37 @@
 import React, { Component } from 'react';
-import Moment from 'moment';
+import { connect } from 'react-redux';
+import { PropTypes } from 'prop-types';
 
-export default class Clock extends Component {
-  constructor(props){
-    super(props);
+import { findCurrentTimeStamp } from '../../actions/find';
+import { setClockTime } from '../../actions/set';
 
-    this.state = {
-      current_time: '',
-    };
-  }
-
+class Clock extends Component {
   componentDidMount(){
-    setInterval(() => this.setState({ current_time: Moment().format('LTS') }), 100);
+    let ms = 100;
+    let s = 10 * ms;
+    let min = 60 * s;
+
+    setInterval(  () => this.props.setClockTime(), ms );
+    setInterval( () => this.props.findCurrentTimeStamp(this.props.clock_time), min );
   }
+
   render() {
     return (
       <div className="clock">
-        <span>{this.state.current_time}</span>
+        <span>{ this.props.clock_time }</span>
       </div>
     );
   }
 }
+
+Clock.propTypes = {
+  findCurrentTimeStamp: PropTypes.func,
+  setClockTime: PropTypes.func,
+  clock_time: PropTypes.string,
+};
+
+const mapStateToProps = state => ({
+  clock_time: state.set.clock_time,
+});
+
+export default connect(mapStateToProps, { findCurrentTimeStamp, setClockTime })(Clock);
