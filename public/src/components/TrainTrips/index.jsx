@@ -14,6 +14,7 @@ class TrainTrips extends Component {
             train_trip.stop_time_update.map((stop_time, index) => {
               let arrival_time = "N/A";
               let arrival_delay = "N/A";
+
               let departure_time = "N/A";
               let departure_delay = "N/A";
 
@@ -45,13 +46,8 @@ class TrainTrips extends Component {
                   }>
                     Trip ID: { train_trip.trip.trip_id } <br/>
                     Trip route: { train_trip.trip.route_id } <br/>
-                    Trip Stop: { stop_time.stop_id } <br/>
-                    Arrival Time: { arrival_time } <br/>
-                    Arrival Delay: { arrival_delay } <br/>
-                    Departure Time: { departure_time } <br/>
-                    Departure Delay: { departure_delay } <br />
-                    Time to arrive: { arrival_time_left } <br />
-                    Time to depart: { departure_time_left }
+                    Arriving in: { arrival_time_left } <br />
+                    Leaving in: { departure_time_left }
                 </p>;
               } //end of stop_time if statement
             })
@@ -76,3 +72,24 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(TrainTrips);
+
+                // return <p 
+                //   key={ index.toString() }
+                //   style={
+                //     { 
+                //       color: '#55efc4', 
+                //       textAlign: 'justify',
+                //       backgroundColor: '#2d3436',
+                //       padding: '1em' 
+                //     }
+                //   }>
+                //     Trip ID: { train_trip.trip.trip_id } <br/>
+                //     Trip route: { train_trip.trip.route_id } <br/>
+                //     Trip Stop: { stop_time.stop_id } <br/>
+                //     Arrival Time: { arrival_time } <br/>
+                //     Arrival Delay: { arrival_delay } <br/>
+                //     Departure Time: { departure_time } <br/>
+                //     Departure Delay: { departure_delay } <br />
+                //     Arriving in: { arrival_time_left } <br />
+                //     Leaving in: { departure_time_left }
+                // </p>;

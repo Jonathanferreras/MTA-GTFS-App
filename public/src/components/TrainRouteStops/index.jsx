@@ -43,7 +43,9 @@ class TrainRouteStops extends Component {
               .map((train_stop, index) => {
                 
                 return <li className="train-route-stop" key={ index.toString() }>
+                  <hr />
                   { train_stop.stop_name }
+                  <hr />
 
                   {/* Map train trip times to stops */}
                   <TrainTrips train_stop={ train_stop } />
